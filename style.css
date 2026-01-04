@@ -21,7 +21,7 @@ h1 {
     font-size: 0.9rem;
 }
 
-.song-button {
+.song-button, .sidebar-button {
     background-color: cyan;
     color: black;
     padding: 15px 25px;
@@ -35,7 +35,7 @@ h1 {
     position: relative;
 }
 
-.song-button:hover {
+.song-button:hover, .sidebar-button:hover {
     background-color: #0000ff;
     border-color: #0000ff;
     transform: scale(1.05);
@@ -52,7 +52,7 @@ h1 {
   100% { transform: scale(1.05); box-shadow: 0 0 15px #0000ff, 0 0 30px #00ffff; }
 }
 
-.song-button::after {
+.song-button::after, .sidebar-button::after {
     content: "";
     position: absolute;
     top: -50%;
@@ -66,7 +66,7 @@ h1 {
     pointer-events: none;
 }
 
-.song-button:hover::after {
+.song-button:hover::after, .sidebar-button:hover::after {
     opacity: 0.2;
 }
 
