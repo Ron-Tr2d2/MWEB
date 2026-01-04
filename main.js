@@ -3,27 +3,26 @@ let tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 document.body.appendChild(tag);
 
-// 2. Array to store players
-const players = [];
+// 2. Store players
+const players = {};
 
-// 3. Called when YouTube API is ready
+// 3. Called when API is ready
 function onYouTubeIframeAPIReady() {
-    const iframes = document.querySelectorAll('iframe');
-    iframes.forEach((iframe, index) => {
-        players[index] = new YT.Player(iframe);
-    });
+    players["UMGi6bFMP68"] = new YT.Player('video1');
+    players["69FlNUmzQWc"] = new YT.Player('video2');
+    players["idIkVG-g5UQ"] = new YT.Player('video3');
 }
 
-// 4. Function to play video by video ID
+// 4. Play video by video ID
 function playVideoById(videoId) {
-    const iframes = Array.from(document.querySelectorAll('iframe'));
-    const index = iframes.findIndex(iframe => iframe.src.includes(videoId));
-    if (players[index]) {
-        players[index].playVideo();
+    if (players[videoId]) {
+        players[videoId].playVideo();
+    } else {
+        console.log("Player not ready yet:", videoId);
     }
 }
 
-// 5. Apply to all buttons (main + sidebar)
+// 5. Add click events to all buttons
 const allButtons = document.querySelectorAll('.song-button, .sidebar-button');
 
 allButtons.forEach(button => {
