@@ -22,9 +22,9 @@ h1 {
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 255, 255, 0.5);
     cursor: pointer;
+    font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     position: relative;
-    font-weight: bold;
 }
 
 /* Hover: cyan → blue + glow */
@@ -35,8 +35,8 @@ h1 {
     box-shadow: 0 0 15px #0000ff, 0 0 30px #00ffff;
 }
 
-/* Click / active pulse-flash */
-.song-button:active {
+/* Pulse/flash animation class triggered by JS */
+.pulse-flash {
     animation: pulse-flash 0.4s ease;
 }
 
@@ -56,9 +56,25 @@ h1 {
   }
 }
 
-/* ---------------------- */
-/* SONG CARD CONTENT      */
-/* ---------------------- */
+/* Optional subtle glow on hover */
+.song-button::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, #00ffff 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.song-button:hover::after {
+    opacity: 0.2;
+}
+
 .song h2 {
     margin: 0 0 5px 0;
     color: cyan;
@@ -80,23 +96,3 @@ iframe {
     border: 2px solid cyan;
     box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
 }
-
-
-.song-button::after {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, #00ffff 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-.song-button:hover::after {
-    opacity: 0.2;
-}
-
