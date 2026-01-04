@@ -1,66 +1,102 @@
-/* General body styling */
+
 body {
     font-family: Arial, sans-serif;
     background-color: black;
-    /* dark background */
-    color: #ca7979;
-    /* your chosen text color */
+    color: #ca7979; /* main text color */
     margin: 20px;
 }
 
-/* Page title */
+/* PAGE TITLE */
 h1 {
     text-align: center;
+    color: cyan;
 }
 
-/* Song cards */
+
 .song-button {
-    background-color: cyan;
-    padding: 15px;
+    background-color: cyan;  /* default cyan */
+    color: black;             /* text for contrast */
+    padding: 15px 25px;
     margin-bottom: 20px;
+    border: 2px solid cyan;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 255, 255, 0.5);
     cursor: pointer;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    position: relative;
+    font-weight: bold;
 }
-.song-button:hover{
+
+/* Hover: cyan → blue + glow */
+.song-button:hover {
     background-color: #0000ff;  /* blue */
-  border-color: #0000ff;
-  transform: scale(1.05);
+    border-color: #0000ff;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #0000ff, 0 0 30px #00ffff;
 }
+
+/* Click / active pulse-flash */
 .song-button:active {
-  animation: pulse-flash 0.4s ease;
+    animation: pulse-flash 0.4s ease;
 }
+
+/* Keyframes for pulse + flash */
 @keyframes pulse-flash {
   0% {
     transform: scale(1.05);
-    box-shadow: 0 0 10px #0000ff, 0 0 20px #0000ff;
+    box-shadow: 0 0 15px #0000ff, 0 0 30px #00ffff;
   }
   50% {
     transform: scale(1.15);
-    box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+    box-shadow: 0 0 25px #00ffff, 0 0 50px #00ffff;
   }
   100% {
     transform: scale(1.05);
-    box-shadow: 0 0 10px #0000ff, 0 0 20px #0000ff;
+    box-shadow: 0 0 15px #0000ff, 0 0 30px #00ffff;
   }
 }
-/* Song titles */
+
+/* ---------------------- */
+/* SONG CARD CONTENT      */
+/* ---------------------- */
 .song h2 {
-    margin: 0;
+    margin: 0 0 5px 0;
+    color: cyan;
 }
 
-/* Artist names */
 .song p {
+    margin: 0;
     color: #aaa;
+    font-size: 0.9rem;
 }
 
-/* YouTube embeds */
+
 iframe {
     margin-top: 10px;
     width: 100%;
     max-width: 400px;
     height: 225px;
     border-radius: 6px;
+    border: 2px solid cyan;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
 }
+
+
+.song-button::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, #00ffff 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.song-button:hover::after {
+    opacity: 0.2;
+}
+
