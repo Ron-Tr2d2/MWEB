@@ -1,0 +1,42 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    /* dark background */
+    color: #ca7979;
+    /* your chosen text color */
+    margin: 20px;
+}
+
+/* Page title */
+h1 {
+    text-align: center;
+}
+
+/* Song cards */
+.song {
+    background-color: #1e1e1e;
+    /* dark card */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+/* Song titles */
+.song h2 {
+    margin: 0;
+}
+
+/* Artist names */
+.song p {
+    color: #aaa;
+}
+
+/* YouTube embeds */
+iframe {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 400px;
+    height: 225px;
+    border-radius: 6px;
+}
