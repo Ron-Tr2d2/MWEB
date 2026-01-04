@@ -1,7 +1,7 @@
 /* General body styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: blue;
+    background-color: black;
     /* dark background */
     color: #ca7979;
     /* your chosen text color */
@@ -15,7 +15,7 @@ h1 {
 
 /* Song cards */
 .song {
-    background-color: red;
+    background-color: cyan;
     padding: 15px;
     margin-bottom: 20px;
     border-radius: 8px;
